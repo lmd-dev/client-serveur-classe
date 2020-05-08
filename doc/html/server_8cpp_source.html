@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Client Server:  Fichier source de server/server.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Client Server
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_41e1742e44e2de38b3bc91f993fed282.html">server</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">server.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="server_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="server_8h.html">server.h</a>&quot;</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="socket-factory_8h.html">socket-factory.h</a>&quot;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_server.html#a4576d753ae13668a93e7338dba5bd193">   11</a></span>&#160;<a class="code" href="class_server.html#a4576d753ae13668a93e7338dba5bd193">Server::Server</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; listeningPort)</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    port = listeningPort;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    socketServer = NULL;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_server.html#a4b3aa2579cb1c8cd1d069582c14d0fa6">   20</a></span>&#160;<a class="code" href="class_server.html#a4b3aa2579cb1c8cd1d069582c14d0fa6">Server::~Server</a>()</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span> (socketServer)</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">delete</span> socketServer;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_server.html#a7eac07d2582fa01c2671362efa955b31">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_server.html#a7eac07d2582fa01c2671362efa955b31">Server::start</a>()</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">try</span> {</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        socketServer = <a class="code" href="class_socket_factory.html#aae7171ee9d23b8b59075e13e8fbae09c">SocketFactory::createSocket</a>();</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        socketServer-&gt;<a class="code" href="class_i_socket.html#a8b820e3741a20312c6cdbfe8664e0af0">listenOn</a>(port);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Server started. Waiting for connections...&quot;</span> &lt;&lt; std::endl;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        std::thread connectionThread(&amp;Server::waitForConnections, socketServer);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        connectionThread.join();</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">catch</span> (std::exception&amp; exception)</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::cout &lt;&lt; exception.what() &lt;&lt; std::endl;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> Server::waitForConnections(<a class="code" href="class_i_socket.html">ISocket</a>* socketServer)</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">try</span></div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <a class="code" href="class_i_socket.html">ISocket</a>* socketClient = socketServer-&gt;<a class="code" href="class_i_socket.html#a013a7effa5367271f6889f9057473308">acceptConnection</a>();</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keyword">new</span> std::thread(&amp;Server::processConnection, socketServer, socketClient);</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">catch</span> (std::exception&amp; e)</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            std::cout &lt;&lt; e.what() &lt;&lt; std::endl;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">void</span> Server::processConnection(<a class="code" href="class_i_socket.html">ISocket</a>* socketServer, <a class="code" href="class_i_socket.html">ISocket</a>* socketClient)</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">try</span> {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Incoming connection - Process request...&quot;</span> &lt;&lt; std::endl;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">char</span> buffer[4096] = <span class="stringliteral">&quot;&quot;</span>;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        socketServer-&gt;<a class="code" href="class_i_socket.html#a1fcbb17fad4d2c184b4010b15d2ea18d">receiveData</a>(socketClient, buffer, 4096);;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        std::cout &lt;&lt; buffer &lt;&lt; std::endl;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        std::string response = <span class="stringliteral">&quot;HTTP/1.0 200 OK\r\n&quot;</span>;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        response += <span class="stringliteral">&quot;Content-Type: text/html\r\n&quot;</span>;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        response += <span class="stringliteral">&quot;Content-Length: 48\r\n&quot;</span>;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        response += <span class="stringliteral">&quot;\r\n&quot;</span>;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        response += <span class="stringliteral">&quot;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Page Web !&lt;/body&gt;&lt;/html&gt;&quot;</span>;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        socketServer-&gt;<a class="code" href="class_i_socket.html#abab5b15b8b821de056e0a159a197ea03">sendData</a>(socketClient, response.c_str(), response.length());</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">catch</span> (std::exception&amp; exception)</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        std::cout &lt;&lt; exception.what() &lt;&lt; std::endl;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    socketClient-&gt;<a class="code" href="class_i_socket.html#a3b518625f639bfef187fde5c84b790ce">close</a>();</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Connection closed.&quot;</span>;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div><div class="ttc" id="class_server_html_a7eac07d2582fa01c2671362efa955b31"><div class="ttname"><a href="class_server.html#a7eac07d2582fa01c2671362efa955b31">Server::start</a></div><div class="ttdeci">void start()</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00029">server.cpp:29</a></div></div>
+<div class="ttc" id="class_i_socket_html"><div class="ttname"><a href="class_i_socket.html">ISocket</a></div><div class="ttdef"><b>Definition:</b> <a href="isocket_8h_source.html#l00007">isocket.h:7</a></div></div>
+<div class="ttc" id="class_i_socket_html_a1fcbb17fad4d2c184b4010b15d2ea18d"><div class="ttname"><a href="class_i_socket.html#a1fcbb17fad4d2c184b4010b15d2ea18d">ISocket::receiveData</a></div><div class="ttdeci">virtual int receiveData(ISocket *from, char *buffer, const int &amp;bufferLength)=0</div></div>
+<div class="ttc" id="socket-factory_8h_html"><div class="ttname"><a href="socket-factory_8h.html">socket-factory.h</a></div></div>
+<div class="ttc" id="class_i_socket_html_a8b820e3741a20312c6cdbfe8664e0af0"><div class="ttname"><a href="class_i_socket.html#a8b820e3741a20312c6cdbfe8664e0af0">ISocket::listenOn</a></div><div class="ttdeci">virtual void listenOn(const int &amp;port)=0</div></div>
+<div class="ttc" id="class_socket_factory_html_aae7171ee9d23b8b59075e13e8fbae09c"><div class="ttname"><a href="class_socket_factory.html#aae7171ee9d23b8b59075e13e8fbae09c">SocketFactory::createSocket</a></div><div class="ttdeci">static ISocket * createSocket()</div><div class="ttdef"><b>Definition:</b> <a href="socket-factory_8cpp_source.html#l00007">socket-factory.cpp:7</a></div></div>
+<div class="ttc" id="class_i_socket_html_a013a7effa5367271f6889f9057473308"><div class="ttname"><a href="class_i_socket.html#a013a7effa5367271f6889f9057473308">ISocket::acceptConnection</a></div><div class="ttdeci">virtual ISocket * acceptConnection()=0</div></div>
+<div class="ttc" id="class_i_socket_html_abab5b15b8b821de056e0a159a197ea03"><div class="ttname"><a href="class_i_socket.html#abab5b15b8b821de056e0a159a197ea03">ISocket::sendData</a></div><div class="ttdeci">virtual void sendData(ISocket *to, const char *buffer, const int &amp;bufferLength)=0</div></div>
+<div class="ttc" id="server_8h_html"><div class="ttname"><a href="server_8h.html">server.h</a></div></div>
+<div class="ttc" id="class_i_socket_html_a3b518625f639bfef187fde5c84b790ce"><div class="ttname"><a href="class_i_socket.html#a3b518625f639bfef187fde5c84b790ce">ISocket::close</a></div><div class="ttdeci">virtual void close()=0</div></div>
+<div class="ttc" id="class_server_html_a4576d753ae13668a93e7338dba5bd193"><div class="ttname"><a href="class_server.html#a4576d753ae13668a93e7338dba5bd193">Server::Server</a></div><div class="ttdeci">Server(const int &amp;listeningPort)</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00011">server.cpp:11</a></div></div>
+<div class="ttc" id="class_server_html_a4b3aa2579cb1c8cd1d069582c14d0fa6"><div class="ttname"><a href="class_server.html#a4b3aa2579cb1c8cd1d069582c14d0fa6">Server::~Server</a></div><div class="ttdeci">~Server()</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00020">server.cpp:20</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Client Server:  Fichier source de socket/isocket.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Client Server
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_81c2d611c6881768367d907d08eea305.html">socket</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">isocket.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="isocket_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_i_socket.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_socket.html">ISocket</a></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">//Server socket features -----------------------------------------------------</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_socket.html#a8b820e3741a20312c6cdbfe8664e0af0">listenOn</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; port) = 0;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_i_socket.html">ISocket</a>* <a class="code" href="class_i_socket.html#a013a7effa5367271f6889f9057473308">acceptConnection</a>() = 0;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">//Client socket features -----------------------------------------------------</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_socket.html#a9eb0eb385c6de92b8cdda11c756ff38a">connectTo</a>(<span class="keyword">const</span> std::string&amp; address, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; port) = 0;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">//Common features ------------------------------------------------------------</span></div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_socket.html#abab5b15b8b821de056e0a159a197ea03">sendData</a>(<a class="code" href="class_i_socket.html">ISocket</a>* to, <span class="keyword">const</span> <span class="keywordtype">char</span>* buffer, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; bufferLength) = 0;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_i_socket.html#a1fcbb17fad4d2c184b4010b15d2ea18d">receiveData</a>(<a class="code" href="class_i_socket.html">ISocket</a>* from, <span class="keywordtype">char</span>* buffer, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; bufferLength) = 0;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_socket.html#a3b518625f639bfef187fde5c84b790ce">close</a>() = 0;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div><div class="ttc" id="class_i_socket_html"><div class="ttname"><a href="class_i_socket.html">ISocket</a></div><div class="ttdef"><b>Definition:</b> <a href="isocket_8h_source.html#l00007">isocket.h:7</a></div></div>
+<div class="ttc" id="class_i_socket_html_a1fcbb17fad4d2c184b4010b15d2ea18d"><div class="ttname"><a href="class_i_socket.html#a1fcbb17fad4d2c184b4010b15d2ea18d">ISocket::receiveData</a></div><div class="ttdeci">virtual int receiveData(ISocket *from, char *buffer, const int &amp;bufferLength)=0</div></div>
+<div class="ttc" id="class_i_socket_html_a8b820e3741a20312c6cdbfe8664e0af0"><div class="ttname"><a href="class_i_socket.html#a8b820e3741a20312c6cdbfe8664e0af0">ISocket::listenOn</a></div><div class="ttdeci">virtual void listenOn(const int &amp;port)=0</div></div>
+<div class="ttc" id="class_i_socket_html_a013a7effa5367271f6889f9057473308"><div class="ttname"><a href="class_i_socket.html#a013a7effa5367271f6889f9057473308">ISocket::acceptConnection</a></div><div class="ttdeci">virtual ISocket * acceptConnection()=0</div></div>
+<div class="ttc" id="class_i_socket_html_abab5b15b8b821de056e0a159a197ea03"><div class="ttname"><a href="class_i_socket.html#abab5b15b8b821de056e0a159a197ea03">ISocket::sendData</a></div><div class="ttdeci">virtual void sendData(ISocket *to, const char *buffer, const int &amp;bufferLength)=0</div></div>
+<div class="ttc" id="class_i_socket_html_a3b518625f639bfef187fde5c84b790ce"><div class="ttname"><a href="class_i_socket.html#a3b518625f639bfef187fde5c84b790ce">ISocket::close</a></div><div class="ttdeci">virtual void close()=0</div></div>
+<div class="ttc" id="class_i_socket_html_a9eb0eb385c6de92b8cdda11c756ff38a"><div class="ttname"><a href="class_i_socket.html#a9eb0eb385c6de92b8cdda11c756ff38a">ISocket::connectTo</a></div><div class="ttdeci">virtual void connectTo(const std::string &amp;address, const int &amp;port)=0</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

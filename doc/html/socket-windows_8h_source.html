@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Client Server:  Fichier source de socket/socket-windows.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Client Server
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_81c2d611c6881768367d907d08eea305.html">socket</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">socket-windows.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="socket-windows_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="isocket_8h.html">isocket.h</a>&quot;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;WinSock2.h&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma comment(lib, &quot;ws2_32.lib&quot;)</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_socket_windows.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_socket_windows.html">SocketWindows</a>: <span class="keyword">public</span> <a class="code" href="class_i_socket.html">ISocket</a></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> instances;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> initialize();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> uninitialize();</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_socket_windows.html#a167505b7a6ca47977b01eed8ce140834">   31</a></span>&#160;    SOCKET <a class="code" href="class_socket_windows.html#a167505b7a6ca47977b01eed8ce140834">_socket</a>;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_socket_windows.html#aa3b98c6a4614f6c7cc277217f402cca0">SocketWindows</a>();</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_socket_windows.html#aa3b98c6a4614f6c7cc277217f402cca0">SocketWindows</a>(<span class="keyword">const</span> SOCKET&amp; sock);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_socket_windows.html#ad1d9c23611e42dd30fd0f7b5a063d761">~SocketWindows</a>();</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        </div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_socket_windows.html#ae40600d678d1d822604547afe4207fa9">listenOn</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; port);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="class_i_socket.html">ISocket</a>* <a class="code" href="class_socket_windows.html#af173279050e48c200ccb2b701a447c5e">acceptConnection</a>();</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_socket_windows.html#ad2068f9f1ce0ea829b9efa90f88467a4">connectTo</a>(<span class="keyword">const</span> std::string&amp; address, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; port);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_socket_windows.html#aaf3eeaf5f7301b610bf55aa8c7438733">sendData</a>(<a class="code" href="class_i_socket.html">ISocket</a>* to, <span class="keyword">const</span> <span class="keywordtype">char</span>* buffer, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; bufferLength);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_socket_windows.html#ad81d243db5e04e98d2b2f8dbac074501">receiveData</a>(<a class="code" href="class_i_socket.html">ISocket</a>* from, <span class="keywordtype">char</span>* buffer, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; bufferLength);</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_socket_windows.html#a61b9f21029c27f6d735aae983213c15f">close</a>();</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div><div class="ttc" id="class_socket_windows_html_ad81d243db5e04e98d2b2f8dbac074501"><div class="ttname"><a href="class_socket_windows.html#ad81d243db5e04e98d2b2f8dbac074501">SocketWindows::receiveData</a></div><div class="ttdeci">int receiveData(ISocket *from, char *buffer, const int &amp;bufferLength)</div><div class="ttdef"><b>Definition:</b> <a href="socket-windows_8cpp_source.html#l00146">socket-windows.cpp:146</a></div></div>
+<div class="ttc" id="class_i_socket_html"><div class="ttname"><a href="class_i_socket.html">ISocket</a></div><div class="ttdef"><b>Definition:</b> <a href="isocket_8h_source.html#l00007">isocket.h:7</a></div></div>
+<div class="ttc" id="class_socket_windows_html_ae40600d678d1d822604547afe4207fa9"><div class="ttname"><a href="class_socket_windows.html#ae40600d678d1d822604547afe4207fa9">SocketWindows::listenOn</a></div><div class="ttdeci">void listenOn(const int &amp;port)</div><div class="ttdef"><b>Definition:</b> <a href="socket-windows_8cpp_source.html#l00061">socket-windows.cpp:61</a></div></div>
+<div class="ttc" id="isocket_8h_html"><div class="ttname"><a href="isocket_8h.html">isocket.h</a></div></div>
+<div class="ttc" id="class_socket_windows_html_ad2068f9f1ce0ea829b9efa90f88467a4"><div class="ttname"><a href="class_socket_windows.html#ad2068f9f1ce0ea829b9efa90f88467a4">SocketWindows::connectTo</a></div><div class="ttdeci">void connectTo(const std::string &amp;address, const int &amp;port)</div><div class="ttdef"><b>Definition:</b> <a href="socket-windows_8cpp_source.html#l00106">socket-windows.cpp:106</a></div></div>
+<div class="ttc" id="class_socket_windows_html_aaf3eeaf5f7301b610bf55aa8c7438733"><div class="ttname"><a href="class_socket_windows.html#aaf3eeaf5f7301b610bf55aa8c7438733">SocketWindows::sendData</a></div><div class="ttdeci">void sendData(ISocket *to, const char *buffer, const int &amp;bufferLength)</div><div class="ttdef"><b>Definition:</b> <a href="socket-windows_8cpp_source.html#l00130">socket-windows.cpp:130</a></div></div>
+<div class="ttc" id="class_socket_windows_html_ad1d9c23611e42dd30fd0f7b5a063d761"><div class="ttname"><a href="class_socket_windows.html#ad1d9c23611e42dd30fd0f7b5a063d761">SocketWindows::~SocketWindows</a></div><div class="ttdeci">~SocketWindows()</div><div class="ttdef"><b>Definition:</b> <a href="socket-windows_8cpp_source.html#l00031">socket-windows.cpp:31</a></div></div>
+<div class="ttc" id="class_socket_windows_html_af173279050e48c200ccb2b701a447c5e"><div class="ttname"><a href="class_socket_windows.html#af173279050e48c200ccb2b701a447c5e">SocketWindows::acceptConnection</a></div><div class="ttdeci">ISocket * acceptConnection()</div><div class="ttdef"><b>Definition:</b> <a href="socket-windows_8cpp_source.html#l00087">socket-windows.cpp:87</a></div></div>
+<div class="ttc" id="class_socket_windows_html_aa3b98c6a4614f6c7cc277217f402cca0"><div class="ttname"><a href="class_socket_windows.html#aa3b98c6a4614f6c7cc277217f402cca0">SocketWindows::SocketWindows</a></div><div class="ttdeci">SocketWindows()</div><div class="ttdef"><b>Definition:</b> <a href="socket-windows_8cpp_source.html#l00011">socket-windows.cpp:11</a></div></div>
+<div class="ttc" id="class_socket_windows_html_a61b9f21029c27f6d735aae983213c15f"><div class="ttname"><a href="class_socket_windows.html#a61b9f21029c27f6d735aae983213c15f">SocketWindows::close</a></div><div class="ttdeci">void close()</div><div class="ttdef"><b>Definition:</b> <a href="socket-windows_8cpp_source.html#l00167">socket-windows.cpp:167</a></div></div>
+<div class="ttc" id="class_socket_windows_html"><div class="ttname"><a href="class_socket_windows.html">SocketWindows</a></div><div class="ttdef"><b>Definition:</b> <a href="socket-windows_8h_source.html#l00009">socket-windows.h:9</a></div></div>
+<div class="ttc" id="class_socket_windows_html_a167505b7a6ca47977b01eed8ce140834"><div class="ttname"><a href="class_socket_windows.html#a167505b7a6ca47977b01eed8ce140834">SocketWindows::_socket</a></div><div class="ttdeci">SOCKET _socket</div><div class="ttdef"><b>Definition:</b> <a href="socket-windows_8h_source.html#l00031">socket-windows.h:31</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>
