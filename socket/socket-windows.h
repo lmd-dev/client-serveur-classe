@@ -23,8 +23,7 @@ private:
 	 * uninitializes the WinSock2 library when no more instances use Windows sockets
 	 */
 	void uninitialize();
-
-public:
+	
 	/**
 	 * Opened Windows socket
 	 */
